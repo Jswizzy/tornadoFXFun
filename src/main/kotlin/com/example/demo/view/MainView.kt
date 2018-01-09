@@ -12,6 +12,7 @@ import tornadofx.*
 
 class MainView : View("Hello TornadoFX") {
     val personEditor: PersonEditor by inject()
+    val personList: PersonList by inject()
 
     override val root = borderpane {
 
@@ -89,7 +90,10 @@ class MainView : View("Hello TornadoFX") {
                 }
             }
             item("Person Editor") {
-                borderpane { center = personEditor.root }
+                borderpane {
+                    center = personList.root
+                    right = personEditor.root
+                }
             }
         }
     }
